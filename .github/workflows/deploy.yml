@@ -1,14 +1,29 @@
 name : 깃허브 액션 실행시키기
 
+# maind이라는 브랜치에 push 될 때 아래 workflow를 실행
 on:
   push:
     branches:
       - main
 
+#하나의 Workflow는 1개 이상의 job으로 구성
+#여러 job은 기본적으로 병렬적으로 수행
 jobs:
+
+  #job을 식별하기 위한 이름, 맘대로 설정해도 됨
   My-Deploy-job:
+    #실행될 운영체제, 우분투의 가장 최신 버전
     runs-on: ubuntu-latest
 
+    #step은 특정 작업을 수행하는 가장 작은 단위
+    #job은 여러 step들로 구성돼있다.
     steps:
+      #스텝마다 이름과 명령어를 설장할 수 있음
       - name: Hello World 찍기
         run: echo "Hello world"
+
+
+      - name : 여러 명령어 문장 작성하기
+        run: |
+          echo "Good"
+          echo "hi"
