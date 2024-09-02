@@ -27,3 +27,15 @@ jobs:
         run: |
           echo "Good"
           echo "hi"
+
+      - name : 깃허브 액션 자체에 저장돼 있는 변수 사용
+        run: |
+          echo @GITHUB_SHA
+          echo @GITHUB_REPOSITORY
+
+      - name: 아무에게 보여지면 안되는 변수 사용
+        run: |
+          echo ${{secretes.MY_NAME}}
+          echo ${{secretes.MY_HOBBY}}
+          
+          
